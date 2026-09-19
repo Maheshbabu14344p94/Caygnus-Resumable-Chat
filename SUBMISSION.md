@@ -4,7 +4,7 @@
 
 -   **Name:** - Mahesh Babu Singampalli
 -   **Email:** - singampallimaheshbabu@gmail.com
--   **GitHub:** -  https://github.com/Maheshbabu14344p94
+-   **GitHub:** -  https://github.com/Maheshbabu14344p94/Caygnus-Resumable-Chat.git
 -   **Selected problem:** - Problem 1 --- Resumable Realtime Conversation
 -   **Demo video:** - (https://www.loom.com/share/7eee3b8e6aad4a4ea02678f01e2cf6bd)
 
