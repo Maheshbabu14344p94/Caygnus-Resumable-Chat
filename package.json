@@ -1,0 +1,13 @@
+{
+  "name": "caygnus-resumable-realtime-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "test": "node --test test/*.test.js",
+    "benchmark": "node scripts/benchmark.js",
+    "dev": "node server/src/index.js",
+    "lint": "node scripts/lint-check.js"
+  }
+}

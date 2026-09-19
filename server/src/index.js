@@ -1,0 +1,22 @@
+import path from 'node:path';
+import { EventStore } from './store/EventStore.js';
+import { SseHub } from './services/SseHub.js';
+import { RunService } from './services/RunService.js';
+import { FakeGenerator } from './generators/FakeGenerator.js';
+import { createServer, projectRoot } from './server.js';
+
+const root = projectRoot();
+const port = Number(process.env.PORT || 3001);
+const file = path.resolve(root, process.env.DB_FILE || './server/data/store.json');
+const count = Number(process.env.EVENT_COUNT || 40);
+const delayMs = Number(process.env.EVENT_DELAY_MS || 120);
+const failAfter = process.env.FAIL_AFTER === '' || process.env.FAIL_AFTER === undefined ? null : Number(process.env.FAIL_AFTER);
+const store = new EventStore(file);
+const hub = new SseHub();
+const interrupted = store.recoverInterruptedRuns();
+if (interrupted.length) console.log(`Recovered ${interrupted.length} interrupted run(s) as failed.`);
+const runService = new RunService({ store, hub, generatorFactory: () => new FakeGenerator({ count, delayMs, failAfter }) });
+const server = createServer({ runService, store, hub, clientDir: path.join(root, 'client') });
+server.listen(port, () => console.log(`Caygnus server: http://localhost:${port}`));
+process.on('SIGINT', () => server.close(() => process.exit(0)));
+process.on('SIGTERM', () => server.close(() => process.exit(0)));
