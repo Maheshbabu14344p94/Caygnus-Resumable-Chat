@@ -474,14 +474,14 @@ features of this prototype.
 
 ## AI usage
 
-AI tools were used during development for implementation brainstorming,
-code review, edge-case exploration, and documentation assistance.
+ChatGPT was used during development for implementation brainstorming,
+code review, edge-case exploration, debugging assistance, and
+documentation assistance.
 
-Generated suggestions were reviewed and tested against the deterministic
-automated test suite and verification benchmark. The final behavior is
-based on the submitted implementation and its observed test/benchmark
-results.
-
+Suggestions from ChatGPT were reviewed, adapted where appropriate, and
+tested against the deterministic automated test suite and verification
+benchmark. The final behavior is based on the submitted implementation
+and its observed test/benchmark results.
 ------------------------------------------------------------------------
 
 ## Credibility note
